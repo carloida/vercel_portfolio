@@ -1,126 +1,130 @@
-# GST F5 Compliance Agent Prototype
+# Carlo Emilio Ida Portfolio
 
-Full stack prototype for an AI-assisted Singapore GST F5 filing preparation workflow. It is designed as a capstone/job-aligned showcase for Carlo Emilio Ida, NUS MSc Business Analytics, targeting finance + data/AI work where automation prepares the filing package and human accountants retain final approval.
+Frontend-first portfolio website for Carlo Emilio Ida, built as the main landing page for MSBA work, analytics projects, operations experience, and future deployed applications.
 
-## Project Overview
+This repository is the portfolio shell that will later connect to:
 
-The app ingests quarterly transaction CSV data, validates and cleans it with Pandas, classifies GST treatment with deterministic explainable rules, computes GST F5 Box 1 to Box 8 values, flags reconciliation exceptions, supports accountant overrides with reasons, maintains an audit trail, and exports a submission-ready workpaper package.
+- project detail pages
+- case studies
+- live machine learning demos
+- analytics dashboards
+- downloadable resume assets
+- future backend-powered contact or application features
 
-It intentionally does not connect to the IRAS myTax Portal and does not perform actual submission.
+## Overview
 
-## Why This Matches QCP GST F5 Automation
+The site is designed to present Carlo as a structured, business-aware analytics professional with a background spanning:
 
-- Automates GST F5 preparation steps from transaction ingestion through review package export.
-- Uses explainable classification and reconciliation checks rather than opaque black-box decisions.
-- Preserves human oversight through mandatory accountant override reasons and final approval.
-- Maintains audit logs for file upload, ingestion, classification, exception generation, override, recalculation, approval, and exports.
-- Produces exportable CSV/JSON artifacts suitable for manual review and manual IRAS entry.
+- NUS MSc in Business Analytics
+- project management and operations delivery
+- SQL and data modeling
+- Python and machine learning
+- reporting, KPI design, and decision support
 
-## Reflection Of Previous MSBA Projects
+The current version is intentionally frontend only.
 
-- Med-SEAL: specialized classification, reconciliation, GST summary, export, and audit services mirror guarded agent orchestration, safety checks, auditability, role-aware workflows, and human oversight.
-- Agentic property valuation system: ingestion, preprocessing, feature-like rule signals, confidence scoring, anomaly flags, and business-facing UI are reflected in the transaction review cockpit.
-- SQL/data warehousing project: normalized SQLite tables, filing-period transaction facts, exception records, override history, and audit trail support analytical review and export.
-- Portfolio optimization project: validation, robustness checks, high-value anomaly detection, and risk-based decision support appear in the reconciliation and approval gates.
+## Stack
 
-## Architecture
+- Next.js
+- TypeScript
+- Tailwind CSS
+- App Router
+
+## Project Structure
 
 ```text
-frontend/ React + TypeScript + Tailwind
-  App dashboard
-  UploadPanel -> CSV upload
-  TransactionReviewTable -> filters + override modal
-  GSTF5Summary -> Box 1 to Box 8 + approval
-  ReconciliationPanel -> exception review
-  AuditTrail -> chronological events
-  ExportCenter -> CSV/JSON workpapers
+src/
+  app/
+    layout.tsx
+    page.tsx
+    globals.css
+  components/
+    layout/
+    sections/
+    ui/
+  data/
+    portfolio.ts
+  lib/
+  types/
 
-backend/ FastAPI + SQLite + Pandas + Pydantic
-  main.py -> REST API
-  database.py -> SQLite schema
-  services/
-    ingestion_service.py -> validate, clean, classify, store
-    classification_service.py -> deterministic GST treatment rules
-    reconciliation_service.py -> mismatch, duplicate, missing, FX, period, negative, high-value checks
-    gst_f5_service.py -> Box 1 to Box 8 calculation
-    audit_service.py -> immutable workflow trail
-    export_service.py -> CSV and JSON package exports
+public/
+  carlo-emilio-ida-resume-2026.pdf
 ```
 
-## Setup
+## Main Content Source
 
-### Backend
+Most editable portfolio content lives in:
+
+`src/data/portfolio.ts`
+
+Update this file to change:
+
+- hero copy
+- about details
+- skills
+- project cards
+- experience timeline
+- live demo placeholders
+- contact links
+
+## Local Development
+
+Install dependencies:
 
 ```bash
-cd backend
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload --host 127.0.0.1 --port 8000
-```
-
-Health check:
-
-```bash
-curl http://127.0.0.1:8000/health
-```
-
-### Frontend
-
-```bash
-cd frontend
 npm install
+```
+
+Run the development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://127.0.0.1:5173](http://127.0.0.1:5173).
+Open:
 
-## Sample Data
+[http://localhost:3000](http://localhost:3000)
 
-Use:
+Build for production:
 
-```text
-backend/sample_data/sample_qcp_gst_transactions.csv
+```bash
+npm run build
 ```
 
-Suggested demo flow:
+## Current Portfolio Focus
 
-1. Create filing period `GST F5 Q1 2026` with dates `2026-01-01` to `2026-03-31`.
-2. Upload the sample CSV.
-3. Review auto-classified GST treatments and reconciliation exceptions.
-4. Override a transaction with an accountant reason.
-5. Confirm the audit trail updates and the GST F5 summary recalculates.
-6. Export GST F5 JSON, reviewed transactions CSV, exceptions CSV, and audit CSV.
+This portfolio currently highlights:
 
-## Core API
+- Carlo Emilio Ida's analytics and operations profile
+- NUS MSc Business Analytics work
+- applied SQL, Power BI, machine learning, and optimization projects
+- the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026 recognition
+- future live-demo slots for deployed applications
 
-- `GET /health`
-- `POST /api/filing-periods`
-- `GET /api/filing-periods`
-- `POST /api/filing-periods/{id}/upload`
-- `GET /api/filing-periods/{id}/transactions`
-- `PATCH /api/transactions/{transaction_id}/override`
-- `GET /api/filing-periods/{id}/exceptions`
-- `GET /api/filing-periods/{id}/gst-f5-summary`
-- `POST /api/filing-periods/{id}/approve`
-- `GET /api/filing-periods/{id}/audit-log`
-- `GET /api/filing-periods/{id}/export/transactions.csv`
-- `GET /api/filing-periods/{id}/export/exceptions.csv`
-- `GET /api/filing-periods/{id}/export/audit.csv`
-- `GET /api/filing-periods/{id}/export/gst-f5.json`
+## Deployment
 
-## Limitations
+This project is suitable for deployment on platforms such as:
 
-- This is a prototype, not tax advice.
-- It does not submit to IRAS.
-- GST rules are simplified and should be validated by qualified accountants.
-- Real implementation requires integration with accounting systems, document OCR, access control, secure deployment, and full IRAS rule validation.
+- Vercel
+- Cloudflare Pages
+- Netlify
 
-## Future Improvements
+For a Next.js-first workflow, Vercel is the simplest option.
 
-- Add user authentication, role-based access, and approval segregation.
-- Add exception acknowledgement and resolution workflow.
-- Add OCR invoice evidence matching and source-document links.
-- Add richer GST rule packs validated by Singapore tax professionals.
-- Add accounting-system connectors and secure deployment.
-- Add Power BI style analytics for exception trends, filing cycle time, and GST exposure.
+## Future Extensions
+
+Planned additions may include:
+
+- dedicated project pages under the App Router
+- GitHub project links per project card
+- live app routes
+- blog or writing section
+- downloadable case study PDFs
+- backend contact form handling
+- authenticated private project areas if needed later
+
+## Notes
+
+- This repository is intended to remain the main portfolio landing page.
+- Other projects can be linked into this site over time without replacing the overall portfolio structure.
+- The current implementation is deployment-ready on the frontend side, with content and sections organized for future expansion.
