@@ -1,10 +1,24 @@
+import Image from "next/image";
+
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/cn";
 
 interface HeroProps {
   name: string;
   title: string;
   hero: {
     eyebrow: string;
+    profileImage: {
+      src: string;
+      alt: string;
+    };
+    credentialLogos: Array<{
+      label: string;
+      detail: string;
+      src: string;
+      alt: string;
+      layout: "wide" | "compact";
+    }>;
     intro: string;
     actions: Array<{ label: string; href: string }>;
     credentials: string[];
@@ -83,8 +97,83 @@ export function Hero({ name, title, hero }: HeroProps) {
         </div>
 
         <div className="animate-rise [animation-delay:120ms]">
-          <div className="rounded-[2.1rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel">
-            <div className="rounded-[1.6rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] p-5">
+          <div className="space-y-5">
+            <figure className="overflow-hidden rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white shadow-panel">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[hsl(var(--navy))] sm:aspect-[16/11] lg:aspect-[4/3]">
+                <Image
+                  alt={hero.profileImage.alt}
+                  className="h-full w-full object-cover object-center"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  src={hero.profileImage.src}
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[hsl(var(--navy))]/70 to-transparent"
+                />
+              </div>
+              <figcaption className="flex flex-col gap-2 border-t border-[hsl(var(--line))] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
+                    Carlo Emilio Ida
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
+                    Analytics | Operations | ML
+                  </p>
+                </div>
+                <p className="text-sm font-medium text-[hsl(var(--navy))]">
+                  NUS MSc Business Analytics
+                </p>
+              </figcaption>
+            </figure>
+
+            <section
+              aria-label="Credential logos"
+              className="rounded-[1.8rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft"
+            >
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
+                Credentials
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {hero.credentialLogos.map((credential) => (
+                  <article
+                    className={cn(
+                      "rounded-[1.25rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] p-4",
+                      credential.layout === "wide" && "sm:col-span-2"
+                    )}
+                    key={credential.label}
+                  >
+                    <div
+                      className={cn(
+                        "flex h-16 items-center overflow-hidden rounded-lg bg-white px-3",
+                        credential.layout === "wide" ? "justify-start" : "justify-center"
+                      )}
+                    >
+                      <Image
+                        alt={credential.alt}
+                        className={cn(
+                          "max-h-11 w-full object-contain",
+                          credential.layout === "wide" ? "object-left" : "object-center"
+                        )}
+                        height={64}
+                        sizes={credential.layout === "wide" ? "(min-width: 640px) 400px, 80vw" : "180px"}
+                        src={credential.src}
+                        width={credential.layout === "wide" ? 360 : 180}
+                      />
+                    </div>
+                    <h3 className="mt-3 text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
+                      {credential.label}
+                    </h3>
+                    <p className="mt-1 text-xs leading-5 text-[hsl(var(--muted))]">
+                      {credential.detail}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-[1.8rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
                 Execution Approach
               </p>
@@ -110,7 +199,7 @@ export function Hero({ name, title, hero }: HeroProps) {
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
               {hero.signalCards.map((card) => (

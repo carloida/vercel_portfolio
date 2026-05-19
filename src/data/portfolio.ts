@@ -37,6 +37,33 @@ export const navigationCta = {
 
 export const hero = {
   eyebrow: "Data and analytics grounded in operations and execution",
+  profileImage: {
+    src: "/profile/carlo-emilio-ida.jpg",
+    alt: "Carlo Emilio Ida"
+  },
+  credentialLogos: [
+    {
+      label: "National University of Singapore",
+      detail: "MSc Business Analytics",
+      src: "/credentials/nus-logo.png",
+      alt: "National University of Singapore logo",
+      layout: "wide" as const
+    },
+    {
+      label: "NUS MSBA",
+      detail: "Master of Science in Business Analytics",
+      src: "/credentials/nus-msba-logo.jpg",
+      alt: "NUS Master of Science in Business Analytics logo",
+      layout: "compact" as const
+    },
+    {
+      label: "PMP",
+      detail: "Project Management Professional",
+      src: "/credentials/pmp-logo.png",
+      alt: "PMP certification logo",
+      layout: "compact" as const
+    }
+  ],
   intro:
     "I am a data and analytics professional specializing in SQL, data modeling, and building structured datasets for decision support. My background spans operations leadership, project delivery, reporting pipelines, and applied analytics, with current MSc in Business Analytics work at NUS focused on valuation modeling, data warehousing, optimization, and AI solution design.",
   actions: [
