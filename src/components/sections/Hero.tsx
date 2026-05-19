@@ -44,175 +44,148 @@ export function Hero({ name, title, hero }: HeroProps) {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid max-w-content gap-12 px-6 pb-20 pt-32 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-24 lg:pt-36">
-        <div className="max-w-3xl animate-rise">
-          <p className="text-xs font-medium uppercase tracking-[0.34em] text-[hsl(var(--muted))]">
-            {hero.eyebrow}
-          </p>
-          <h1 className="mt-6 font-serif text-[clamp(3.3rem,7vw,5.9rem)] leading-[0.96] tracking-[-0.05em] text-[hsl(var(--foreground))]">
-            {name}
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[hsl(var(--navy))]">
-            {title}
-          </p>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-[hsl(var(--muted))] sm:text-lg">
-            {hero.intro}
-          </p>
+      <div className="relative mx-auto max-w-content px-6 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-24 lg:pt-36">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_24rem] xl:grid-cols-[minmax(0,1fr)_26rem]">
+          <div className="max-w-3xl animate-rise">
+            <p className="text-xs font-medium uppercase tracking-[0.34em] text-[hsl(var(--muted))]">
+              {hero.eyebrow}
+            </p>
+            <h1 className="mt-6 font-serif text-[clamp(3.3rem,7vw,5.9rem)] leading-[0.96] tracking-[-0.05em] text-[hsl(var(--foreground))]">
+              {name}
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg font-medium leading-8 text-[hsl(var(--navy))]">
+              {title}
+            </p>
+            <p className="mt-8 max-w-2xl text-base leading-8 text-[hsl(var(--muted))] sm:text-lg">
+              {hero.intro}
+            </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            {hero.actions.map((action, index) => (
-              <Button
-                href={action.href}
-                key={action.label}
-                size="lg"
-                variant={index === 0 ? "primary" : "secondary"}
-              >
-                {action.label}
-              </Button>
-            ))}
+            <div className="mt-10 flex flex-wrap gap-3">
+              {hero.actions.map((action, index) => (
+                <Button
+                  href={action.href}
+                  key={action.label}
+                  size="lg"
+                  variant={index === 0 ? "primary" : "secondary"}
+                >
+                  {action.label}
+                </Button>
+              ))}
+            </div>
+
+            <ul className="mt-10 flex flex-wrap gap-3">
+              {hero.credentials.map((credential) => (
+                <li
+                  className="rounded-full border border-[hsl(var(--line-strong))] bg-white px-4 py-2 text-sm text-[hsl(var(--foreground))] shadow-soft"
+                  key={credential}
+                >
+                  {credential}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-3">
-            {hero.credentials.map((credential) => (
-              <li
-                className="rounded-full border border-[hsl(var(--line-strong))] bg-white px-4 py-2 text-sm text-[hsl(var(--foreground))] shadow-soft"
-                key={credential}
-              >
-                {credential}
-              </li>
-            ))}
-          </ul>
-
-          <aside className="mt-8 rounded-[1.7rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft">
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
-              {hero.achievement.label}
-            </p>
-            <h2 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
-              {hero.achievement.title}
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-[hsl(var(--muted))] sm:text-base">
-              {hero.achievement.description}
-            </p>
+          <aside className="animate-rise rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel [animation-delay:120ms]">
+            <div className="flex flex-col items-center text-center">
+              <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))]">
+                <Image
+                  alt={hero.profileImage.alt}
+                  className="object-cover object-center"
+                  fill
+                  priority
+                  sizes="128px"
+                  src={hero.profileImage.src}
+                />
+              </div>
+              <p className="mt-5 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
+                Carlo Emilio Ida
+              </p>
+              <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
+                Analytics | Operations | Machine Learning
+              </p>
+              <p className="mt-4 max-w-xs text-sm font-medium leading-6 text-[hsl(var(--navy))]">
+                NUS MSc Business Analytics candidate with PMP-certified delivery experience.
+              </p>
+            </div>
           </aside>
         </div>
 
-        <div className="animate-rise [animation-delay:120ms]">
-          <div className="space-y-5">
-            <section className="rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel">
-              <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
-                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))] sm:h-36 sm:w-36">
-                  <Image
-                    alt={hero.profileImage.alt}
-                    className="h-full w-full object-cover object-center"
-                    fill
-                    priority
-                    sizes="144px"
-                    src={hero.profileImage.src}
-                  />
-                </div>
-                <div>
-                  <p className="text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
-                    Carlo Emilio Ida
-                  </p>
-                  <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
-                    Analytics | Operations | Machine Learning
-                  </p>
-                  <p className="mt-3 text-sm font-medium leading-6 text-[hsl(var(--navy))]">
-                    NUS MSc Business Analytics candidate with PMP-certified delivery experience.
-                  </p>
-                </div>
+        <section
+          aria-label="Credential logos"
+          className="mt-12 animate-rise rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-panel [animation-delay:180ms] sm:p-6"
+        >
+          <div className="grid items-center gap-4 md:grid-cols-3">
+            {hero.credentialLogos.map((credential) => (
+              <div
+                className="flex h-28 items-center justify-center rounded-[1.35rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] px-5 shadow-soft sm:h-32"
+                key={credential.label}
+                title={credential.label}
+              >
+                <Image
+                  alt={credential.alt}
+                  className={cn(
+                    "w-full object-contain object-center",
+                    credential.layout === "wide" ? "max-h-24" : "max-h-28"
+                  )}
+                  height={credential.layout === "wide" ? 120 : 132}
+                  sizes="(min-width: 768px) 30vw, 80vw"
+                  src={credential.src}
+                  width={credential.layout === "wide" ? 500 : 260}
+                />
               </div>
-            </section>
-
-            <section
-              aria-label="Credential logos"
-              className="rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
-                  Credentials
-                </p>
-                <span className="hidden h-px flex-1 bg-[hsl(var(--line))] sm:block" />
-              </div>
-              <div className="mt-5 grid gap-4">
-                {hero.credentialLogos.map((credential) => (
-                  <article
-                    className={cn(
-                      "rounded-[1.4rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] p-4 transition-all duration-300 hover:border-[hsl(var(--line-strong))]",
-                      credential.layout === "compact" && "sm:p-5"
-                    )}
-                    key={credential.label}
-                  >
-                    <div
-                      className={cn(
-                        "flex items-center justify-center overflow-hidden rounded-xl bg-white px-4 shadow-soft",
-                        credential.layout === "wide" ? "h-24 sm:h-28" : "h-28 sm:h-32"
-                      )}
-                    >
-                      <Image
-                        alt={credential.alt}
-                        className={cn(
-                          "w-full object-contain object-center",
-                          credential.layout === "wide" ? "max-h-20" : "max-h-24"
-                        )}
-                        height={credential.layout === "wide" ? 112 : 128}
-                        sizes={credential.layout === "wide" ? "(min-width: 1024px) 380px, 80vw" : "220px"}
-                        src={credential.src}
-                        width={credential.layout === "wide" ? 460 : 240}
-                      />
-                    </div>
-                    <h3 className="mt-3 text-center text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
-                      {credential.label}
-                    </h3>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="rounded-[1.8rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
-                Execution Approach
-              </p>
-              <div className="mt-5 space-y-4">
-                {hero.framework.map((item, index) => (
-                  <div
-                    className="rounded-[1.3rem] border border-[hsl(var(--line))] bg-white p-4"
-                    key={item.title}
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[hsl(var(--navy))] text-sm font-semibold text-white">
-                        0{index + 1}
-                      </span>
-                      <div>
-                        <h3 className="text-base font-semibold tracking-[-0.02em] text-[hsl(var(--foreground))]">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-6 text-[hsl(var(--muted))]">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-              {hero.signalCards.map((card) => (
-                <div
-                  className="rounded-[1.5rem] border border-[hsl(var(--line))] bg-white p-5"
-                  key={card.title}
-                >
-                  <p className="text-sm font-semibold tracking-[-0.02em] text-[hsl(var(--foreground))]">
-                    {card.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted))]">
-                    {card.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
+        </section>
+
+        <aside className="mt-8 animate-rise rounded-[1.7rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft [animation-delay:220ms]">
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
+            {hero.achievement.label}
+          </p>
+          <h2 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
+            {hero.achievement.title}
+          </h2>
+          <p className="mt-3 max-w-5xl text-sm leading-7 text-[hsl(var(--muted))] sm:text-base">
+            {hero.achievement.description}
+          </p>
+        </aside>
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {hero.framework.map((item, index) => (
+            <article
+              className="rounded-[1.5rem] border border-[hsl(var(--line))] bg-white p-5 shadow-soft"
+              key={item.title}
+            >
+              <div className="flex items-start gap-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[hsl(var(--navy))] text-sm font-semibold text-white">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold tracking-[-0.02em] text-[hsl(var(--foreground))]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[hsl(var(--muted))]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-5 grid gap-5 lg:grid-cols-3">
+          {hero.signalCards.map((card) => (
+            <article
+              className="rounded-[1.5rem] border border-[hsl(var(--line))] bg-white/75 p-5 shadow-soft"
+              key={card.title}
+            >
+              <p className="text-sm font-semibold tracking-[-0.02em] text-[hsl(var(--foreground))]">
+                {card.title}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted))]">
+                {card.description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </header>
