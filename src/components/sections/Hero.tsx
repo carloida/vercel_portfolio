@@ -45,7 +45,7 @@ export function Hero({ name, title, hero }: HeroProps) {
       />
 
       <div className="relative mx-auto max-w-content px-6 pb-20 pt-32 sm:px-8 lg:px-10 lg:pb-24 lg:pt-36">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_24rem] xl:grid-cols-[minmax(0,1fr)_26rem]">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_24rem] xl:grid-cols-[minmax(0,1fr)_26rem]">
           <div className="max-w-3xl animate-rise">
             <p className="text-xs font-medium uppercase tracking-[0.34em] text-[hsl(var(--muted))]">
               {hero.eyebrow}
@@ -85,15 +85,15 @@ export function Hero({ name, title, hero }: HeroProps) {
             </ul>
           </div>
 
-          <aside className="animate-rise rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-7 shadow-panel [animation-delay:120ms]">
+          <aside className="animate-rise mt-8 rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-7 shadow-panel [animation-delay:120ms] lg:mt-14">
             <div className="flex flex-col items-center text-center">
-              <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))] sm:h-52 sm:w-52 lg:h-48 lg:w-48 xl:h-52 xl:w-52">
+              <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))] sm:h-60 sm:w-60 lg:h-56 lg:w-56 xl:h-60 xl:w-60">
                 <Image
                   alt={hero.profileImage.alt}
                   className="object-cover object-center"
                   fill
                   priority
-                  sizes="(min-width: 1280px) 208px, 192px"
+                  sizes="(min-width: 1280px) 240px, 224px"
                   src={hero.profileImage.src}
                 />
               </div>
