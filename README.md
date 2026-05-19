@@ -91,6 +91,18 @@ Build for production:
 npm run build
 ```
 
+## Project App Links
+
+The Movie Hit Predictor button uses `NEXT_PUBLIC_MOVIE_PREDICTOR_URL`.
+
+For local portfolio review:
+
+```text
+NEXT_PUBLIC_MOVIE_PREDICTOR_URL=http://localhost:5173
+```
+
+For deployment, replace it with the public URL of the deployed movie predictor frontend.
+
 ## Current Portfolio Focus
 
 This portfolio currently highlights:

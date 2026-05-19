@@ -8,6 +8,10 @@ import type {
   SkillCategory
 } from "@/types/portfolio";
 
+const moviePredictorAppUrl =
+  process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL ??
+  "https://github.com/carloida/portfolio_msba_moviepredictor";
+
 export const navigation: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -250,13 +254,13 @@ export const projects: Project[] = [
     ],
     actions: [
       {
-        label: "Project Repo",
-        href: "https://github.com/carloida/portfolio_msba_moviepredictor",
+        label: "Open App",
+        href: moviePredictorAppUrl,
         external: true
       },
       {
-        label: "Frontend Code",
-        href: "https://github.com/carloida/portfolio_msba_moviepredictor/tree/main/frontend",
+        label: "Project Repo",
+        href: "https://github.com/carloida/portfolio_msba_moviepredictor",
         external: true
       },
       {
@@ -411,8 +415,8 @@ export const liveDemos: LiveDemo[] = [
       "Interactive project application for early-stage movie profitability screening, built from the DBA5106 classification model and packaged with a React frontend plus FastAPI model backend.",
     status: "Repo Ready",
     stack: ["React", "FastAPI", "Elastic-Net Logistic Regression", "SHAP"],
-    url: "https://github.com/carloida/portfolio_msba_moviepredictor",
-    actionLabel: "Open Project"
+    url: moviePredictorAppUrl,
+    actionLabel: "Open App"
   },
   {
     title: "Property Valuation Workbench",
