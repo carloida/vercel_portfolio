@@ -94,14 +94,16 @@ npm run build
 ## Project App Links
 
 The Movie Hit Predictor button uses `NEXT_PUBLIC_MOVIE_PREDICTOR_URL`.
+The Portfolio Optimization Pipeline button uses `NEXT_PUBLIC_QRM_PORTFOLIO_URL`.
 
 For local portfolio review:
 
 ```text
 NEXT_PUBLIC_MOVIE_PREDICTOR_URL=http://localhost:5173
+NEXT_PUBLIC_QRM_PORTFOLIO_URL=http://localhost:3002
 ```
 
-For deployment, replace it with the public URL of the deployed movie predictor frontend.
+For deployment, replace these values with the public URLs of the deployed project frontends.
 
 ## Current Portfolio Focus
 
@@ -111,6 +113,7 @@ This portfolio currently highlights:
 - NUS MSc Business Analytics work
 - applied SQL, Power BI, machine learning, and optimization projects
 - the Movie Hit Predictor project from DBA5106, linking to the standalone full-stack app repository
+- the Interactive Portfolio Optimization Lab from DBA5109/QRM, linking to the standalone app repository
 - the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026 recognition
 - future live-demo slots for deployed applications
 

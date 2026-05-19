@@ -12,6 +12,10 @@ const moviePredictorAppUrl =
   process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL ??
   "https://github.com/carloida/portfolio_msba_moviepredictor";
 
+const qrmPortfolioAppUrl =
+  process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL ??
+  "https://github.com/carloida/portfolio_msba_QRMportfolio";
+
 export const navigation: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -341,9 +345,21 @@ export const projects: Project[] = [
       "The objective was not just higher in-sample performance, but more stable out-of-sample behavior and clearer communication of allocation trade-offs through Sharpe-oriented optimization.",
     tools: ["Python", "MPT", "CAPM", "Shrinkage", "Optimization", "Out-of-Sample Testing"],
     actions: [
-      { label: "Case Study" },
-      { label: "Live Demo" },
-      { label: "GitHub" }
+      {
+        label: "Open App",
+        href: qrmPortfolioAppUrl,
+        external: true
+      },
+      {
+        label: "Project Repo",
+        href: "https://github.com/carloida/portfolio_msba_QRMportfolio",
+        external: true
+      },
+      {
+        label: "Model Notes",
+        href: "https://github.com/carloida/portfolio_msba_QRMportfolio#data-behavior",
+        external: true
+      }
     ]
   },
   {
@@ -462,9 +478,11 @@ export const liveDemos: LiveDemo[] = [
   {
     title: "Portfolio Allocation Explorer",
     summary:
-      "Planned interface for comparing EWP, GMV, and Tangency allocations with clearer risk-return interpretation.",
-    status: "Coming Soon",
-    stack: ["Optimization", "Scenario comparison", "Performance charts"]
+      "Interactive QRM portfolio lab for comparing EWP, GMV, Tangency, and regularized allocation behavior across 43 US industry portfolios.",
+    status: "App Ready",
+    stack: ["Next.js", "Recharts", "Optimization", "Risk-return explorer"],
+    url: qrmPortfolioAppUrl,
+    actionLabel: "Open App"
   },
   {
     title: "Operations Analytics Workspace",
