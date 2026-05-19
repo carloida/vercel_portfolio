@@ -34,7 +34,7 @@ export function DemoCard({ demo }: DemoCardProps) {
       </ul>
       <div className="mt-6">
         <Button disabled={!demo.url} href={demo.url} variant="secondary">
-          Live Link
+          {demo.actionLabel ?? "Live Link"}
         </Button>
       </div>
     </article>

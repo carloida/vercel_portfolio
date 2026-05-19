@@ -8,6 +8,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const hasLinkedAction = project.actions.some((action) => Boolean(action.href));
+
   return (
     <article
       className={cn(
@@ -21,7 +23,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.featured ? "Featured Build" : "Project"}
           </p>
           <span className="rounded-full border border-[hsl(var(--line))] px-3 py-1 text-xs text-[hsl(var(--muted))]">
-            {project.featured ? "Priority case study slot" : "Portfolio placeholder"}
+            {project.featured ? "Priority case study" : hasLinkedAction ? "Linked project" : "Case study planned"}
           </span>
         </div>
         <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">

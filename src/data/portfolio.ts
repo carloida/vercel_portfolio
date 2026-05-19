@@ -126,6 +126,11 @@ export const about = {
         "Built an end-to-end analytics pipeline in Python and SQL with feature engineering, model benchmarking, and Random Forest selected on generalization performance."
     },
     {
+      title: "Movie profitability classification",
+      description:
+        "Developed a green-light decision support model for film profitability using LassoCV feature selection, Elastic-Net Logistic Regression, LightGBM benchmarking, and SHAP interpretation."
+    },
+    {
       title: "Data modeling and BI",
       description:
         "Designed 3NF and star schema structures for a Tour de France analytics project, then turned them into dashboard-ready SQL outputs and Power BI metrics."
@@ -165,6 +170,10 @@ export const skills: SkillCategory[] = [
       "Model Evaluation",
       "Random Forest",
       "XGBoost",
+      "Logistic Regression",
+      "LightGBM",
+      "SHAP",
+      "Classification",
       "Portfolio Optimization",
       "Business Analytics"
     ]
@@ -221,6 +230,40 @@ export const projects: Project[] = [
       { label: "Case Study" },
       { label: "Live Demo" },
       { label: "GitHub" }
+    ]
+  },
+  {
+    slug: "movie-profitability-classification-predictor",
+    title: "Movie Profitability Classification and Predictor App",
+    summary:
+      "Built from an NUS DBA5106 classification project that predicts whether a movie is likely to meet a profitable gross-margin threshold using market, genre, budget, runtime, release timing, and director-profile features.",
+    businessLens:
+      "The project frames machine learning as green-light decision support for producers and financiers. The report compared Logistic Regression and LightGBM, selected unweighted Elastic-Net Logistic Regression on validation AUC of 0.8244, and used a cost-sensitive threshold of 0.45 to prioritize recall for profitable films.",
+    tools: [
+      "Python",
+      "Logistic Regression",
+      "LightGBM",
+      "LassoCV",
+      "SHAP",
+      "FastAPI",
+      "React"
+    ],
+    actions: [
+      {
+        label: "Project Repo",
+        href: "https://github.com/carloida/portfolio_msba_moviepredictor",
+        external: true
+      },
+      {
+        label: "Frontend Code",
+        href: "https://github.com/carloida/portfolio_msba_moviepredictor/tree/main/frontend",
+        external: true
+      },
+      {
+        label: "Model Notes",
+        href: "https://github.com/carloida/portfolio_msba_moviepredictor#model-pipeline-summary",
+        external: true
+      }
     ]
   },
   {
@@ -362,6 +405,15 @@ export const experience: ExperienceEntry[] = [
 ];
 
 export const liveDemos: LiveDemo[] = [
+  {
+    title: "Movie Hit Predictor",
+    summary:
+      "Interactive project application for early-stage movie profitability screening, built from the DBA5106 classification model and packaged with a React frontend plus FastAPI model backend.",
+    status: "Repo Ready",
+    stack: ["React", "FastAPI", "Elastic-Net Logistic Regression", "SHAP"],
+    url: "https://github.com/carloida/portfolio_msba_moviepredictor",
+    actionLabel: "Open Project"
+  },
   {
     title: "Property Valuation Workbench",
     summary:

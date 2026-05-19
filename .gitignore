@@ -20,3 +20,4 @@ pnpm-debug.log*
 # Keep this repository focused on the portfolio landing page.
 backend/
 frontend/
+portfolio_msba_moviepredictor/

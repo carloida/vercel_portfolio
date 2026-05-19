@@ -98,6 +98,7 @@ This portfolio currently highlights:
 - Carlo Emilio Ida's analytics and operations profile
 - NUS MSc Business Analytics work
 - applied SQL, Power BI, machine learning, and optimization projects
+- the Movie Hit Predictor project from DBA5106, linking to the standalone full-stack app repository
 - the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026 recognition
 - future live-demo slots for deployed applications
 

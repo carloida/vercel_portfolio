@@ -46,6 +46,7 @@ export interface LiveDemo {
   status: string;
   stack: string[];
   url?: string;
+  actionLabel?: string;
 }
 
 export interface ContactLink {
