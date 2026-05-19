@@ -98,76 +98,72 @@ export function Hero({ name, title, hero }: HeroProps) {
 
         <div className="animate-rise [animation-delay:120ms]">
           <div className="space-y-5">
-            <figure className="overflow-hidden rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white shadow-panel">
-              <div className="relative aspect-[4/3] overflow-hidden bg-[hsl(var(--navy))] sm:aspect-[16/11] lg:aspect-[4/3]">
-                <Image
-                  alt={hero.profileImage.alt}
-                  className="h-full w-full object-cover object-center"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 38vw, 100vw"
-                  src={hero.profileImage.src}
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[hsl(var(--navy))]/70 to-transparent"
-                />
-              </div>
-              <figcaption className="flex flex-col gap-2 border-t border-[hsl(var(--line))] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <section className="rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel">
+              <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
+                <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))] sm:h-36 sm:w-36">
+                  <Image
+                    alt={hero.profileImage.alt}
+                    className="h-full w-full object-cover object-center"
+                    fill
+                    priority
+                    sizes="144px"
+                    src={hero.profileImage.src}
+                  />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
+                  <p className="text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
                     Carlo Emilio Ida
                   </p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
-                    Analytics | Operations | ML
+                  <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
+                    Analytics | Operations | Machine Learning
+                  </p>
+                  <p className="mt-3 text-sm font-medium leading-6 text-[hsl(var(--navy))]">
+                    NUS MSc Business Analytics candidate with PMP-certified delivery experience.
                   </p>
                 </div>
-                <p className="text-sm font-medium text-[hsl(var(--navy))]">
-                  NUS MSc Business Analytics
-                </p>
-              </figcaption>
-            </figure>
+              </div>
+            </section>
 
             <section
               aria-label="Credential logos"
-              className="rounded-[1.8rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft"
+              className="rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel"
             >
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
-                Credentials
-              </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
+                  Credentials
+                </p>
+                <span className="hidden h-px flex-1 bg-[hsl(var(--line))] sm:block" />
+              </div>
+              <div className="mt-5 grid gap-4">
                 {hero.credentialLogos.map((credential) => (
                   <article
                     className={cn(
-                      "rounded-[1.25rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] p-4",
-                      credential.layout === "wide" && "sm:col-span-2"
+                      "rounded-[1.4rem] border border-[hsl(var(--line))] bg-[hsl(var(--surface))] p-4 transition-all duration-300 hover:border-[hsl(var(--line-strong))]",
+                      credential.layout === "compact" && "sm:p-5"
                     )}
                     key={credential.label}
                   >
                     <div
                       className={cn(
-                        "flex h-16 items-center overflow-hidden rounded-lg bg-white px-3",
-                        credential.layout === "wide" ? "justify-start" : "justify-center"
+                        "flex items-center justify-center overflow-hidden rounded-xl bg-white px-4 shadow-soft",
+                        credential.layout === "wide" ? "h-24 sm:h-28" : "h-28 sm:h-32"
                       )}
                     >
                       <Image
                         alt={credential.alt}
                         className={cn(
-                          "max-h-11 w-full object-contain",
-                          credential.layout === "wide" ? "object-left" : "object-center"
+                          "w-full object-contain object-center",
+                          credential.layout === "wide" ? "max-h-20" : "max-h-24"
                         )}
-                        height={64}
-                        sizes={credential.layout === "wide" ? "(min-width: 640px) 400px, 80vw" : "180px"}
+                        height={credential.layout === "wide" ? 112 : 128}
+                        sizes={credential.layout === "wide" ? "(min-width: 1024px) 380px, 80vw" : "220px"}
                         src={credential.src}
-                        width={credential.layout === "wide" ? 360 : 180}
+                        width={credential.layout === "wide" ? 460 : 240}
                       />
                     </div>
-                    <h3 className="mt-3 text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
+                    <h3 className="mt-3 text-center text-sm font-semibold tracking-[-0.01em] text-[hsl(var(--foreground))]">
                       {credential.label}
                     </h3>
-                    <p className="mt-1 text-xs leading-5 text-[hsl(var(--muted))]">
-                      {credential.detail}
-                    </p>
                   </article>
                 ))}
               </div>
