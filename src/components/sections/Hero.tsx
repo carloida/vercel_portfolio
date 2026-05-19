@@ -85,19 +85,19 @@ export function Hero({ name, title, hero }: HeroProps) {
             </ul>
           </div>
 
-          <aside className="animate-rise rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-6 shadow-panel [animation-delay:120ms]">
+          <aside className="animate-rise rounded-[2rem] border border-[hsl(var(--line-strong))] bg-white p-7 shadow-panel [animation-delay:120ms]">
             <div className="flex flex-col items-center text-center">
-              <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))]">
+              <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-white bg-[hsl(var(--navy))] shadow-panel ring-1 ring-[hsl(var(--line-strong))] sm:h-52 sm:w-52 lg:h-48 lg:w-48 xl:h-52 xl:w-52">
                 <Image
                   alt={hero.profileImage.alt}
                   className="object-cover object-center"
                   fill
                   priority
-                  sizes="128px"
+                  sizes="(min-width: 1280px) 208px, 192px"
                   src={hero.profileImage.src}
                 />
               </div>
-              <p className="mt-5 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
+              <p className="mt-6 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
                 Carlo Emilio Ida
               </p>
               <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[hsl(var(--muted))]">
