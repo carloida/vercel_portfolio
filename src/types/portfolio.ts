@@ -25,6 +25,7 @@ export interface Project {
   title: string;
   summary: string;
   businessLens: string;
+  aiContext?: string;
   tools: string[];
   featured?: boolean;
   actions: ActionLink[];

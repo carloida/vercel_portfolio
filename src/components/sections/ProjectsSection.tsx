@@ -12,9 +12,9 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <Section id="projects" tone="subtle">
       <SectionHeading
-        description="A mix of NUS MsBA work, innovation challenge work, and earlier operating-context builds that show how data work connects to actual decision support."
+        description="Interactive applications, AI-agent concepts, and analytics pipelines that show how data work turns into usable decision support."
         eyebrow="Featured Projects"
-        title="Selected project work across analytics, AI, and data modeling"
+        title="Project work with deployed interfaces, AI layers, and business decision logic"
       />
       <div className="mt-12 grid gap-6 lg:grid-cols-2">
         {projects.map((project) => (

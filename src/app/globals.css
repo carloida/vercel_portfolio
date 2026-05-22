@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --background: 214 45% 99%;
-  --surface: 213 30% 97%;
-  --foreground: 218 42% 15%;
-  --muted: 215 19% 42%;
-  --line: 214 28% 88%;
-  --line-strong: 215 28% 80%;
-  --navy: 217 44% 17%;
-  --navy-soft: 214 39% 23%;
+  --background: 0 0% 100%;
+  --surface: 210 38% 97%;
+  --foreground: 202 100% 14%;
+  --muted: 208 24% 38%;
+  --line: 208 27% 88%;
+  --line-strong: 207 28% 78%;
+  --navy: 202 100% 14%;
+  --navy-soft: 202 82% 20%;
+  --red: 0 69% 50%;
+  --orange: 31 100% 48%;
+  --gold: 40 97% 65%;
+  --gold-soft: 40 100% 94%;
 }
 
 html {
@@ -23,7 +27,7 @@ body {
 }
 
 ::selection {
-  background: rgba(15, 31, 53, 0.14);
+  background: rgba(252, 191, 73, 0.38);
 }
 
 @layer base {
@@ -33,7 +37,9 @@ body {
 
   body {
     @apply font-sans antialiased;
-    background-image: radial-gradient(circle at top right, rgba(15, 31, 53, 0.05), transparent 30%);
+    background-image:
+      radial-gradient(circle at top right, rgba(252, 191, 73, 0.12), transparent 26%),
+      radial-gradient(circle at 10% 0%, rgba(0, 48, 73, 0.05), transparent 24%);
   }
 
   a,

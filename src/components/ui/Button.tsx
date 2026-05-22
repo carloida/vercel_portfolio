@@ -3,7 +3,7 @@ import type { MouseEventHandler, ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "inverse";
+type ButtonVariant = "primary" | "secondary" | "accent" | "project" | "ghost" | "inverse";
 type ButtonSize = "md" | "lg";
 
 interface ButtonProps {
@@ -23,6 +23,10 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-[hsl(var(--navy))] text-white shadow-soft hover:-translate-y-0.5 hover:bg-[hsl(var(--navy-soft))]",
   secondary:
     "border border-[hsl(var(--line-strong))] bg-white text-[hsl(var(--foreground))] hover:-translate-y-0.5 hover:border-[hsl(var(--navy))]",
+  accent:
+    "bg-[hsl(var(--orange))] text-white shadow-soft hover:-translate-y-0.5 hover:bg-[hsl(var(--red))]",
+  project:
+    "border border-[hsl(var(--red))] bg-white text-[hsl(var(--red))] shadow-soft hover:-translate-y-0.5 hover:bg-[hsl(var(--red))] hover:text-white",
   ghost:
     "border border-transparent bg-transparent text-[hsl(var(--foreground))] hover:-translate-y-0.5 hover:bg-slate-100",
   inverse:

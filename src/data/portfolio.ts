@@ -253,6 +253,8 @@ export const projects: Project[] = [
       "A 2nd runner-up entry in the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026, where I led product structuring and solution design for a healthcare AI system built to generate context-aware medical insights.",
     businessLens:
       "The work focused on shaping an applied AI concept around workflow usefulness by combining agent-based architecture, retrieval-augmented generation, and structured data pipelines.",
+    aiContext:
+      "Designed as a multi-agent healthcare insight workflow where retrieval, reasoning, and structured outputs are separated into reviewable steps for safer decision support.",
     tools: [
       "Agent-Based Architecture",
       "RAG",
@@ -271,9 +273,11 @@ export const projects: Project[] = [
     slug: "movie-profitability-classification-predictor",
     title: "Movie Profitability Classification and Predictor App",
     summary:
-      "Built from an NUS DBA5106 classification project that predicts whether a movie is likely to meet a profitable gross-margin threshold using market, genre, budget, runtime, release timing, and director-profile features.",
+      "Interactive NUS DBA5106 app that predicts whether a movie is likely to meet a profitable gross-margin threshold using market, genre, budget, runtime, release timing, and director-profile features.",
     businessLens:
       "The project frames machine learning as green-light decision support for producers and financiers. The report compared Logistic Regression and LightGBM, selected unweighted Elastic-Net Logistic Regression on validation AUC of 0.8244, and used a cost-sensitive threshold of 0.45 to prioritize recall for profitable films.",
+    aiContext:
+      "The app is structured for AI-assisted investment screening: reviewers can test scenarios, interpret risk levels, and use model outputs as a decision aid rather than a black-box verdict.",
     tools: [
       "Python",
       "Logistic Regression",
@@ -308,6 +312,8 @@ export const projects: Project[] = [
       "Built an end-to-end analytics pipeline for a property valuation system using Python and SQL, covering data preprocessing, feature engineering, model benchmarking, and evaluation.",
     businessLens:
       "Structured the data and metrics to compare Ridge, Random Forest, and XGBoost, selecting Random Forest based on generalization performance with MAE of roughly $153K and R-squared of 0.888.",
+    aiContext:
+      "Positioned for agent-assisted valuation review, where comparable screening, feature checks, and model outputs can be surfaced as guided analyst prompts.",
     tools: [
       "Python",
       "SQL",
@@ -343,7 +349,9 @@ export const projects: Project[] = [
       "Built a portfolio optimization workflow using 30 years of returns from 43 industry portfolios, applying MPT and CAPM with shrinkage to construct and combine EWP, GMV, and Tangency portfolios.",
     businessLens:
       "The objective was not just higher in-sample performance, but more stable out-of-sample behavior and clearer communication of allocation trade-offs through Sharpe-oriented optimization.",
-    tools: ["Python", "MPT", "CAPM", "Shrinkage", "Optimization", "Out-of-Sample Testing"],
+    aiContext:
+      "The interactive lab includes an AI insights layer to help users interpret allocation behavior, concentration risk, and risk-return trade-offs without losing the underlying quantitative logic.",
+    tools: ["Python", "MPT", "CAPM", "Shrinkage", "Optimization", "AI Insights", "Out-of-Sample Testing"],
     actions: [
       {
         label: "Open App",
