@@ -16,6 +16,9 @@ const qrmPortfolioAppUrl =
   process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL ??
   "https://github.com/carloida/portfolio_msba_QRMportfolio";
 
+const healthcareAiRepoUrl =
+  "https://github.com/AI-Innovation-Challenge-2502/med-seal-rad";
+
 export const navigation: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -264,9 +267,20 @@ export const projects: Project[] = [
     ],
     featured: true,
     actions: [
-      { label: "Case Study" },
-      { label: "Live Demo" },
-      { label: "GitHub" }
+      {
+        label: "Project Repo",
+        href: healthcareAiRepoUrl,
+        external: true
+      },
+      {
+        label: "AI Build Notes",
+        href: `${healthcareAiRepoUrl}#readme`,
+        external: true
+      },
+      {
+        label: "Challenge Context",
+        href: "#about"
+      }
     ]
   },
   {
