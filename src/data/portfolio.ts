@@ -91,7 +91,13 @@ export const hero = {
     label: "Recognition",
     title: "2nd Runner-Up, NUS-SYNAPXE-IMDA AI Innovation Challenge 2026",
     description:
-      "Led product structuring and solution design for a healthcare AI system using agent-based architecture, retrieval-augmented generation, and structured data pipelines to produce context-aware medical insights."
+      "Led product structuring and solution design for a healthcare AI system using agent-based architecture, retrieval-augmented generation, and structured data pipelines to produce context-aware medical insights.",
+    image: {
+      src: "/recognition/nus-synapxe-imda-ai-innovation-challenge.png",
+      alt: "Carlo Emilio Ida and team receiving 2nd Runner-Up recognition at the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026",
+      caption:
+        "NUS-SYNAPXE-IMDA AI Innovation Challenge 2026, 2nd Runner-Up"
+    }
   },
   framework: [
     {

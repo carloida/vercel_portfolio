@@ -26,6 +26,11 @@ interface HeroProps {
       label: string;
       title: string;
       description: string;
+      image?: {
+        src: string;
+        alt: string;
+        caption: string;
+      };
     };
     framework: Array<{ title: string; description: string }>;
     signalCards: Array<{ title: string; description: string }>;
@@ -137,16 +142,45 @@ export function Hero({ name, title, hero }: HeroProps) {
           </div>
         </section>
 
-        <aside className="mt-8 animate-rise rounded-[1.7rem] border border-[hsl(var(--line-strong))] bg-white p-5 shadow-soft [animation-delay:220ms]">
-          <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
-            {hero.achievement.label}
-          </p>
-          <h2 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[hsl(var(--foreground))]">
-            {hero.achievement.title}
-          </h2>
-          <p className="mt-3 max-w-5xl text-sm leading-7 text-[hsl(var(--muted))] sm:text-base">
-            {hero.achievement.description}
-          </p>
+        <aside className="mt-8 animate-rise overflow-hidden rounded-[1.9rem] border border-[hsl(var(--line-strong))] bg-white shadow-panel [animation-delay:220ms]">
+          <div className="grid gap-0 lg:grid-cols-[0.92fr_1.08fr]">
+            <div className="flex flex-col justify-center p-6 sm:p-7">
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-[hsl(var(--muted))]">
+                {hero.achievement.label}
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-[hsl(var(--foreground))]">
+                {hero.achievement.title}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-[hsl(var(--muted))] sm:text-base">
+                {hero.achievement.description}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Healthcare AI", "Agentic Workflow", "RAG", "2nd Runner-Up"].map((item) => (
+                  <span
+                    className="rounded-full border border-[hsl(var(--line-strong))] bg-[hsl(var(--surface))] px-3 py-1.5 text-xs font-medium text-[hsl(var(--navy))]"
+                    key={item}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {hero.achievement.image ? (
+              <figure className="relative min-h-[17rem] border-t border-[hsl(var(--line))] bg-[hsl(var(--navy))] lg:min-h-[20rem] lg:border-l lg:border-t-0">
+                <Image
+                  alt={hero.achievement.image.alt}
+                  className="object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  src={hero.achievement.image.src}
+                />
+                <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/15 bg-[hsl(var(--navy))]/88 px-4 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white shadow-soft backdrop-blur-sm">
+                  {hero.achievement.image.caption}
+                </figcaption>
+              </figure>
+            ) : null}
+          </div>
         </aside>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
