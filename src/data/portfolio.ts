@@ -9,12 +9,13 @@ import type {
 } from "@/types/portfolio";
 
 const moviePredictorAppUrl =
-  process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL ??
-  "https://github.com/carloida/portfolio_msba_moviepredictor";
+  process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL;
 
 const qrmPortfolioAppUrl =
-  process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL ??
-  "https://github.com/carloida/portfolio_msba_QRMportfolio";
+  process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL;
+
+const healthcareAiAppUrl =
+  process.env.NEXT_PUBLIC_HEALTHCARE_AI_URL;
 
 const healthcareAiRepoUrl =
   "https://github.com/AI-Innovation-Challenge-2502/med-seal-rad";
@@ -267,6 +268,11 @@ export const projects: Project[] = [
     ],
     featured: true,
     actions: [
+      {
+        label: "Open App",
+        href: healthcareAiAppUrl,
+        external: true
+      },
       {
         label: "Project Repo",
         href: healthcareAiRepoUrl,
