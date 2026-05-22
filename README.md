@@ -129,7 +129,7 @@ For local portfolio review, copy `.env.example` to `.env.local` and use:
 ```text
 NEXT_PUBLIC_MOVIE_PREDICTOR_URL=http://localhost:5173
 NEXT_PUBLIC_QRM_PORTFOLIO_URL=http://localhost:3002
-NEXT_PUBLIC_HEALTHCARE_AI_URL=http://localhost:3003
+NEXT_PUBLIC_HEALTHCARE_AI_URL=http://localhost:5174
 ```
 
 For deployment, replace these values with the public URLs of the deployed project frontends.
