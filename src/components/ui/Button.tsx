@@ -68,7 +68,7 @@ export function Button({
   }
 
   if (download || external || href.startsWith("http") || href.startsWith("mailto:")) {
-    const shouldOpenNewTab = (external || href.startsWith("http")) && !download;
+    const shouldOpenNewTab = external && !download;
 
     return (
       <a

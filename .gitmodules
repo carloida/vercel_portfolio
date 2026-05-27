@@ -7,3 +7,6 @@
 [submodule "linked-projects/med-seal-rad"]
 	path = linked-projects/med-seal-rad
 	url = https://github.com/AI-Innovation-Challenge-2502/med-seal-rad.git
+[submodule "linked-projects/qcp-gst-f5"]
+	path = linked-projects/qcp-gst-f5
+	url = https://github.com/carloida/QCP_proofofconcept_carloida

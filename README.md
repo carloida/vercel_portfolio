@@ -21,7 +21,7 @@ The site is designed to present Carlo as a structured, business-aware analytics 
 - Python and machine learning
 - reporting, KPI design, and decision support
 
-The current version is intentionally frontend only.
+The portfolio itself is a frontend Next.js app. Interactive project applications live in `linked-projects/` and can be launched beside the portfolio for local review.
 
 ## Stack
 
@@ -54,6 +54,7 @@ linked-projects/
   movie-predictor/
   qrm-portfolio/
   med-seal-rad/
+  qcp-gst-f5/
 ```
 
 The `linked-projects/` folders are Git submodules that point to the standalone project repositories. They keep the portfolio lightweight while still making the related application code discoverable from this main repo.
@@ -118,23 +119,69 @@ This brings in:
 - `linked-projects/qrm-portfolio` from `carloida/portfolio_msba_QRMportfolio`
 - `linked-projects/med-seal-rad` from `AI-Innovation-Challenge-2502/med-seal-rad`
 
+The QCP GST F5 proof of concept is also used by this portfolio. If it is not already present locally, clone it with:
+
+```bash
+git clone https://github.com/carloida/QCP_proofofconcept_carloida linked-projects/qcp-gst-f5
+```
+
 ## Project App Links
 
-The Movie Hit Predictor button uses `NEXT_PUBLIC_MOVIE_PREDICTOR_URL`.
-The Portfolio Optimization Pipeline button uses `NEXT_PUBLIC_QRM_PORTFOLIO_URL`.
-The Healthcare AI Insight System button uses `NEXT_PUBLIC_HEALTHCARE_AI_URL`.
+The portfolio buttons now open internal launch pages:
+
+- `/apps/movie-predictor`
+- `/apps/qrm-portfolio`
+- `/apps/qcp-gst-f5`
+
+Those pages embed or open the running companion applications. The launch page iframe URLs use:
+
+- `NEXT_PUBLIC_MOVIE_PREDICTOR_EMBED_URL`, defaulting to `http://127.0.0.1:5174`
+- `NEXT_PUBLIC_QRM_PORTFOLIO_EMBED_URL`, defaulting to `http://127.0.0.1:3002`
+- `NEXT_PUBLIC_QCP_GST_F5_EMBED_URL`, defaulting to `http://127.0.0.1:5173`
 
 For local portfolio review, copy `.env.example` to `.env.local` and use:
 
 ```text
-NEXT_PUBLIC_MOVIE_PREDICTOR_URL=http://localhost:5173
-NEXT_PUBLIC_QRM_PORTFOLIO_URL=http://localhost:3002
-NEXT_PUBLIC_HEALTHCARE_AI_URL=http://localhost:5174
+NEXT_PUBLIC_MOVIE_PREDICTOR_URL=/apps/movie-predictor
+NEXT_PUBLIC_MOVIE_PREDICTOR_EMBED_URL=http://127.0.0.1:5174
+NEXT_PUBLIC_QRM_PORTFOLIO_URL=/apps/qrm-portfolio
+NEXT_PUBLIC_QRM_PORTFOLIO_EMBED_URL=http://127.0.0.1:3002
+NEXT_PUBLIC_QCP_GST_F5_URL=/apps/qcp-gst-f5
+NEXT_PUBLIC_QCP_GST_F5_EMBED_URL=http://127.0.0.1:5173
 ```
 
-For deployment, replace these values with the public URLs of the deployed project frontends.
+For deployment, replace the embed values with the public URLs of the deployed project frontends.
 
-Important: the portfolio intentionally keeps `Open App` links separate from `Project Repo` links. If a deployed app URL is not configured, the `Open App` button is disabled rather than sending reviewers to GitHub by accident.
+Important: the Med Seal healthcare project is linked to GitHub only, per the project requirement. It does not open an embedded app from the portfolio.
+
+## Running All Interactive Apps Locally
+
+Install the portfolio dependencies, then start the portfolio:
+
+```bash
+npm install
+npm run dev
+```
+
+In another PowerShell terminal, start all companion apps:
+
+```powershell
+npm run start:apps
+```
+
+Use this the first time, or after dependency changes:
+
+```powershell
+.\scripts\start-linked-apps.ps1 -Install
+```
+
+The launcher starts:
+
+- QCP GST F5 frontend: `http://127.0.0.1:5173`
+- QCP GST F5 API: `http://127.0.0.1:8000`
+- Movie Predictor frontend: `http://127.0.0.1:5174`
+- Movie Predictor API: `http://127.0.0.1:8001`
+- QRM Portfolio app: `http://127.0.0.1:3002`
 
 ## Current Portfolio Focus
 
@@ -145,6 +192,7 @@ This portfolio currently highlights:
 - applied SQL, Power BI, machine learning, and optimization projects
 - the Movie Hit Predictor project from DBA5106, linking to the standalone full-stack app repository
 - the Interactive Portfolio Optimization Lab from DBA5109/QRM, linking to the standalone app repository
+- the QCP GST F5 Filing Automation proof of concept, linking to its interactive compliance workflow application
 - the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026 recognition
 - future live-demo slots for deployed applications
 
@@ -167,7 +215,7 @@ Recommended Vercel setup:
 ```text
 NEXT_PUBLIC_MOVIE_PREDICTOR_URL=https://your-movie-app-domain
 NEXT_PUBLIC_QRM_PORTFOLIO_URL=https://your-qrm-app-domain
-NEXT_PUBLIC_HEALTHCARE_AI_URL=https://your-healthcare-ai-app-domain
+NEXT_PUBLIC_QCP_GST_F5_URL=https://your-qcp-gst-f5-app-domain
 ```
 
 4. Redeploy the portfolio after setting the variables.

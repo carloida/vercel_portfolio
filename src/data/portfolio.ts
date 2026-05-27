@@ -9,16 +9,19 @@ import type {
 } from "@/types/portfolio";
 
 const moviePredictorAppUrl =
-  process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL;
+  process.env.NEXT_PUBLIC_MOVIE_PREDICTOR_URL ?? "http://127.0.0.1:5174";
 
 const qrmPortfolioAppUrl =
-  process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL;
+  process.env.NEXT_PUBLIC_QRM_PORTFOLIO_URL ?? "http://127.0.0.1:3002";
 
-const healthcareAiAppUrl =
-  process.env.NEXT_PUBLIC_HEALTHCARE_AI_URL;
+const qcpGstF5AppUrl =
+  process.env.NEXT_PUBLIC_QCP_GST_F5_URL ?? "http://127.0.0.1:5173";
 
 const healthcareAiRepoUrl =
   "https://github.com/AI-Innovation-Challenge-2502/med-seal-rad";
+
+const qcpGstF5RepoUrl =
+  "https://github.com/carloida/QCP_proofofconcept_carloida";
 
 export const navigation: NavItem[] = [
   { label: "Home", href: "#home" },
@@ -275,11 +278,6 @@ export const projects: Project[] = [
     featured: true,
     actions: [
       {
-        label: "Open App",
-        href: healthcareAiAppUrl,
-        external: true
-      },
-      {
         label: "Project Repo",
         href: healthcareAiRepoUrl,
         external: true
@@ -317,7 +315,6 @@ export const projects: Project[] = [
       {
         label: "Open App",
         href: moviePredictorAppUrl,
-        external: true
       },
       {
         label: "Project Repo",
@@ -382,7 +379,6 @@ export const projects: Project[] = [
       {
         label: "Open App",
         href: qrmPortfolioAppUrl,
-        external: true
       },
       {
         label: "Project Repo",
@@ -400,14 +396,59 @@ export const projects: Project[] = [
     slug: "operations-reporting-and-data-pipelines",
     title: "Operations Reporting and Data Pipeline Buildout",
     summary:
-      "Built analytics-driven reporting, SQL-backed data pipelines, and planning tools in an operations environment to reduce manual reporting and support faster decision-making.",
+      "Corporate transformation portfolio covering process assessment, Lean and Six Sigma solution design, VBA/SAP report automation, SQL-style data standardization, internal software modules, and Power BI-ready operations data.",
     businessLens:
-      "This prior work shows how I translate enterprise requirements into structured backlogs, data models, workflows, and measurable transformation outcomes beyond standard ERP reporting.",
-    tools: ["SQL", "VBA", "SAP ERP", "Reporting Automation", "Metrics Design", "Web Apps"],
+      "The work moved teams from manual paper and spreadsheet workflows into automated reports, structured datasets, internal systems, and management dashboards, supporting PHP 100M inventory reduction, 20+ reports and dashboards, 6 software modules, and 60+ closed projects.",
+    aiContext:
+      "The portfolio page models the operating logic behind the work: assess process reality, standardize data capture, automate repeatable reporting, then turn operational workflows into governed software and BI layers.",
+    tools: [
+      "SAP ERP",
+      "VBA",
+      "SQL-style Data Modeling",
+      "Power BI",
+      "Lean Six Sigma",
+      "Agile Delivery",
+      "Operational KPIs"
+    ],
     actions: [
-      { label: "Case Study" },
-      { label: "Live Demo" },
-      { label: "GitHub" }
+      { label: "Open Model", href: "/operations-portfolio" },
+      { label: "View PDF", href: "/operations/project-portfolio-2024.pdf", external: true }
+    ]
+  },
+  {
+    slug: "qcp-gst-f5-filing-automation",
+    title: "AI Agent for GST F5 Filing Automation",
+    summary:
+      "Human-in-the-loop compliance operations prototype for preparing Singapore GST F5 filing materials, from transaction ingestion and AI-assisted GST treatment classification through anomaly review, F5 computation, approval gating, and filing pack export.",
+    businessLens:
+      "Built for finance and accounting workflows where AI can reduce repetitive GST preparation effort while preserving accountant oversight, mandatory override reasons, auditability, manager approval, and manual IRAS myTax Portal submission responsibility.",
+    aiContext:
+      "The agent supports transaction standardization, GST treatment recommendations, confidence scoring, anomaly detection, compliance action queues, and evaluation metrics while keeping humans accountable for review, overrides, final approval, and filing readiness.",
+    tools: [
+      "FastAPI",
+      "React",
+      "Singapore GST F5",
+      "Human-in-the-Loop AI",
+      "Audit Trail",
+      "Approval Gates",
+      "Compliance UX"
+    ],
+    featured: true,
+    actions: [
+      {
+        label: "Open App",
+        href: qcpGstF5AppUrl
+      },
+      {
+        label: "Project Repo",
+        href: qcpGstF5RepoUrl,
+        external: true
+      },
+      {
+        label: "Workflow Notes",
+        href: `${qcpGstF5RepoUrl}#readme`,
+        external: true
+      }
     ]
   }
 ];
@@ -521,9 +562,20 @@ export const liveDemos: LiveDemo[] = [
   {
     title: "Operations Analytics Workspace",
     summary:
-      "Planned reporting environment for KPI monitoring, filtered operational views, and structured decision support.",
-    status: "Coming Soon",
-    stack: ["SQL-backed metrics", "Dashboard UI", "Operational reporting"]
+      "Corporate operations portfolio model with the original PDF embedded, covering Lean assessment, VBA/SAP automation, internal software modules, and BI-ready operational datasets.",
+    status: "Portfolio Ready",
+    stack: ["SAP ERP", "VBA", "SQL-style modeling", "Power BI", "Lean Six Sigma"],
+    url: "/operations-portfolio",
+    actionLabel: "Open Model"
+  },
+  {
+    title: "GST F5 Filing Workspace",
+    summary:
+      "Interactive QCP compliance operations prototype with ingestion, AI GST classification, anomaly resolution, human review, approval gates, audit trail, and filing pack exports.",
+    status: "Finale App",
+    stack: ["React", "FastAPI", "GST F5", "Human-in-the-loop AI", "Audit trail"],
+    url: qcpGstF5AppUrl,
+    actionLabel: "Open App"
   }
 ];
 
