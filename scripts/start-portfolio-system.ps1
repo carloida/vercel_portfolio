@@ -84,10 +84,8 @@ $MovieBackend = Join-Path $Root "linked-projects\movie-predictor\backend"
 $QrmApp = Join-Path $Root "linked-projects\qrm-portfolio"
 $QcpFrontend = Join-Path $Root "linked-projects\qcp-gst-f5\frontend"
 $QcpBackend = Join-Path $Root "linked-projects\qcp-gst-f5\backend"
-$MedSealFrontend = Join-Path $Root "linked-projects\med-seal-rad\apps\ai-frontend"
 
 Ensure-NodeDependencies $Root
-Ensure-NodeDependencies $MedSealFrontend
 Ensure-NodeDependencies $MovieFrontend
 Ensure-NodeDependencies $QrmApp
 Ensure-NodeDependencies $QcpFrontend
@@ -114,12 +112,6 @@ Start-HiddenService `
   -Command "`$env:FRONTEND_ORIGIN='http://127.0.0.1:5174'; & '$MoviePython' -m uvicorn main:app --host 127.0.0.1 --port 8001"
 
 Start-HiddenService `
-  -Title "Med-SEAL ClinOS Frontend :3001" `
-  -Path $MedSealFrontend `
-  -Port 3001 `
-  -Command "npm run dev -- --host 127.0.0.1 --port 3001"
-
-Start-HiddenService `
   -Title "QCP GST F5 Frontend :5173" `
   -Path $QcpFrontend `
   -Port 5173 `
@@ -140,7 +132,6 @@ Start-HiddenService `
 $FailedChecks = @()
 
 if (-not (Wait-Url -Name "Main portfolio" -Url "http://localhost:3000")) { $FailedChecks += "Main portfolio" }
-if (-not (Wait-Url -Name "Med-SEAL ClinOS" -Url "http://127.0.0.1:3001")) { $FailedChecks += "Med-SEAL ClinOS" }
 if (-not (Wait-Url -Name "Movie Predictor" -Url "http://127.0.0.1:5174")) { $FailedChecks += "Movie Predictor" }
 if (-not (Wait-Url -Name "Movie API" -Url "http://127.0.0.1:8001/health")) { $FailedChecks += "Movie API" }
 if (-not (Wait-Url -Name "QRM Portfolio" -Url "http://127.0.0.1:3002")) { $FailedChecks += "QRM Portfolio" }
@@ -154,7 +145,6 @@ if (-not $NoOpen) {
 Write-Host ""
 Write-Host "Portfolio system is ready."
 Write-Host "Main portfolio:   http://localhost:3000"
-Write-Host "Med-SEAL ClinOS:  http://127.0.0.1:3001"
 Write-Host "Movie Predictor:  http://127.0.0.1:5174"
 Write-Host "QRM Portfolio:    http://127.0.0.1:3002"
 Write-Host "GST F5 Filing:    http://127.0.0.1:5173"

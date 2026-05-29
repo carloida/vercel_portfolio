@@ -20,9 +20,6 @@ const qcpGstF5AppUrl =
 const healthcareAiRepoUrl =
   "https://github.com/IgoyAI/Med-SEAL-Medical-Suite";
 
-const healthcareAiAppUrl =
-  process.env.NEXT_PUBLIC_MED_SEAL_URL ?? "http://127.0.0.1:3001";
-
 const qcpGstF5RepoUrl =
   "https://github.com/carloida/QCP_proofofconcept_carloida";
 
@@ -283,10 +280,6 @@ export const projects: Project[] = [
     ],
     featured: true,
     actions: [
-      {
-        label: "Open App",
-        href: healthcareAiAppUrl
-      },
       {
         label: "Project Repo",
         href: healthcareAiRepoUrl,

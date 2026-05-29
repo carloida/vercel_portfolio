@@ -24,27 +24,7 @@ const qcpUrl =
   process.env.NEXT_PUBLIC_QCP_GST_F5_URL ??
   "http://127.0.0.1:5173";
 
-const medSealUrl =
-  process.env.NEXT_PUBLIC_MED_SEAL_EMBED_URL ??
-  process.env.NEXT_PUBLIC_MED_SEAL_URL ??
-  "http://127.0.0.1:3001";
-
 export const appLaunchers: AppLauncher[] = [
-  {
-    slug: "med-seal",
-    title: "Med-SEAL Medical Suite",
-    eyebrow: "Healthcare AI innovation challenge suite",
-    summary:
-      "Open the Med-SEAL ClinOS frontend, a healthcare platform interface for SSO, clinical service launch, system status, and AI decision-support workflow presentation.",
-    directUrl: medSealUrl,
-    repoUrl: "https://github.com/IgoyAI/Med-SEAL-Medical-Suite",
-    localCommand: ".\\scripts\\start-portfolio-system.ps1",
-    notes: [
-      "The permanent launcher serves the ClinOS frontend on port 3001.",
-      "The full Med-SEAL suite uses Docker services for OpenEMR, Medplum FHIR, SSO, AI service, and databases.",
-      "LLM and clinical backend features require secrets such as LLM_API_KEY and database passwords; these are intentionally not configured yet."
-    ]
-  },
   {
     slug: "movie-predictor",
     title: "Movie Profitability Classification and Predictor App",
