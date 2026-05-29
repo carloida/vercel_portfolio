@@ -23,6 +23,9 @@ const healthcareAiRepoUrl =
 const qcpGstF5RepoUrl =
   "https://github.com/carloida/QCP_proofofconcept_carloida";
 
+const foundersPokemonRepoUrl =
+  "https://github.com/carloida/founders_pokemon";
+
 export const navigation: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -416,6 +419,38 @@ export const projects: Project[] = [
     actions: [
       { label: "Open Model", href: "/operations-portfolio" },
       { label: "View PDF", href: "/operations/project-portfolio-2024.pdf", external: true }
+    ]
+  },
+  {
+    slug: "pokemon-founders-startrading",
+    title: "Pokemon Founders StarTrading App",
+    summary:
+      "Professional-grade Pokemon TCG analytics and tracking platform concept that brings Bloomberg-style market intelligence to collectors and investors using eBay sold-listing data, card-level analytics, and AI-generated market commentary.",
+    businessLens:
+      "The project frames trading-card collecting as a data product: scrape real transaction data, clean noisy listings, track volatility and volume, summarize price movement, and help users manage a card vault with clearer buy, sell, or hold signals.",
+    aiContext:
+      "Designed with a local LLM insight layer using Ollama and Llama 3.1 to generate concise market intelligence, weekly portfolio reports, top mover summaries, and strategic commentary while keeping inference privacy-conscious.",
+    tools: [
+      "Python",
+      "FastAPI",
+      "Playwright",
+      "React",
+      "Vite",
+      "SQLite",
+      "Ollama",
+      "Market Analytics"
+    ],
+    actions: [
+      {
+        label: "Project Repo",
+        href: foundersPokemonRepoUrl,
+        external: true
+      },
+      {
+        label: "Requirements",
+        href: `${foundersPokemonRepoUrl}/blob/main/requirements_document.md`,
+        external: true
+      }
     ]
   },
   {
