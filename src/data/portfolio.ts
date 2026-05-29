@@ -18,7 +18,10 @@ const qcpGstF5AppUrl =
   process.env.NEXT_PUBLIC_QCP_GST_F5_URL ?? "http://127.0.0.1:5173";
 
 const healthcareAiRepoUrl =
-  "https://github.com/AI-Innovation-Challenge-2502/med-seal-rad";
+  "https://github.com/IgoyAI/Med-SEAL-Medical-Suite";
+
+const healthcareAiAppUrl =
+  process.env.NEXT_PUBLIC_MED_SEAL_URL ?? "http://127.0.0.1:3001";
 
 const qcpGstF5RepoUrl =
   "https://github.com/carloida/QCP_proofofconcept_carloida";
@@ -261,22 +264,29 @@ export const skills: SkillCategory[] = [
 export const projects: Project[] = [
   {
     slug: "healthcare-ai-innovation-challenge",
-    title: "Healthcare AI Insight System",
+    title: "Med-SEAL Medical Suite",
     summary:
-      "A 2nd runner-up entry in the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026, where I led product structuring and solution design for a healthcare AI system built to generate context-aware medical insights.",
+      "A 2nd runner-up entry in the NUS-SYNAPXE-IMDA AI Innovation Challenge 2026, built as a healthcare platform suite for clinical systems, FHIR interoperability, SSO, and AI-powered decision support.",
     businessLens:
-      "The work focused on shaping an applied AI concept around workflow usefulness by combining agent-based architecture, retrieval-augmented generation, and structured data pipelines.",
+      "The work focused on shaping an applied AI concept around workflow usefulness by combining clinical service orchestration, FHIR data exchange, SSO, agent-based AI support, and reviewable healthcare workflows.",
     aiContext:
-      "Designed as a multi-agent healthcare insight workflow where retrieval, reasoning, and structured outputs are separated into reviewable steps for safer decision support.",
+      "Designed as a multi-agent healthcare workflow where clinical chat, decision support, ambient summaries, and patient context are separated into reviewable layers for safer decision support.",
     tools: [
       "Agent-Based Architecture",
       "RAG",
+      "FHIR R4",
+      "OpenEMR",
+      "Medplum",
       "Structured Data Pipelines",
       "AI Solution Design",
       "Healthcare AI"
     ],
     featured: true,
     actions: [
+      {
+        label: "Open App",
+        href: healthcareAiAppUrl
+      },
       {
         label: "Project Repo",
         href: healthcareAiRepoUrl,
